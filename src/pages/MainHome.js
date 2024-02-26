@@ -12,7 +12,6 @@ const MainHome = () => {
         <Carousel2/>
         <Carosuel3/>
         <Carousel4/>
-    {/*  <Carousel5/> */}
         <Carousel6/>
     </div>
   )
