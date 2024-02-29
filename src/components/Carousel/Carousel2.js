@@ -20,7 +20,7 @@ const Carousel2 = () => {
           500:{
             items:3,
           },
-          370:{
+          200:{
             items:2,  
           }
         }
