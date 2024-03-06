@@ -8,7 +8,7 @@ const Accessories = () => {
   const [data, setData] = useState([])
 
   const userData = async () => {
-    let res = await fetch("http://sapphire-back.vercel.app/api/v3/auth/data/accessories")
+    let res = await fetch("https://sapphire-back.vercel.app/api/v3/auth/data/accessories")
     res = await res.json()
     setData(res)
     userData()
@@ -28,7 +28,7 @@ const Accessories = () => {
               return (
                 <div className="col-lg-3 col-md-4 col-sm-6 my-2w" key={ind}>
                   <div className="card">
-                    <img src={`http://sapphire-back.vercel.app/${x.img}`} className="card-img-top" alt="sas" />
+                    <img src={`https://sapphire-back.vercel.app/${x.img}`} className="card-img-top" alt="sas" />
                     <div className="card-body">
                     <h5 className="card-title fnt-mont fnt-title">{x.title}</h5>
                       <div className="d-flex">
