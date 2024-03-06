@@ -28,7 +28,7 @@ const Accessories = () => {
               return (
                 <div className="col-lg-3 col-md-4 col-sm-6 my-2w" key={ind}>
                   <div className="card">
-                    <img src={`http://localhost:4000/api/v3/auth/${x.img}`} className="card-img-top" alt="sas" />
+                    <img src={`https://sapphire-back.vercel.app/api/v3/auth/${x.img}`} className="card-img-top" alt="sas" />
                     <div className="card-body">
                     <h5 className="card-title fnt-mont fnt-title">{x.title}</h5>
                       <div className="d-flex">
