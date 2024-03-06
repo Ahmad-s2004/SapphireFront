@@ -30,7 +30,7 @@ const Accessories = () => {
                   <div className="card">
                     <img src={`https://sapphire-back.vercel.app/${x.img}`} className="card-img-top" alt="sas" />
                     <div className="card-body">
-                    <h5 className="card-title fnt-mont fnt-title">{x.img}{x.title}</h5>
+                    <h5 className="card-title fnt-mont fnt-title">{x.title}</h5>
                       <div className="d-flex">
                       <p className="card-text h6 col-6">Rs.{x.price}</p>
                       <Link to={`/accessories/${x._id}`} className="btn btn-dark btn-margin col-6">View Item</Link>
