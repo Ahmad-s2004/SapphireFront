@@ -8,7 +8,7 @@ const Accessories = () => {
   const [data, setData] = useState([])
 
   const userData = async () => {
-    let res = await fetch("http://localhost:4000/api/v3/auth/data/accessories")
+    let res = await fetch("https://sapphire-back.vercel.app/api/v3/auth/data/accessories")
     res = await res.json()
     setData(res)
     userData()
