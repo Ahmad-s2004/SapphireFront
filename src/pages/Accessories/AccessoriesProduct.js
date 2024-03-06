@@ -15,7 +15,7 @@ const AccessoriesProduct = () => {
 
 
   const userData = async () => {
-    let res = await fetch(`http://localhost:4000/api/v2/auth/accessories/${_id}`)
+    let res = await fetch(`https://sapphire-back.vercel.app/api/v2/auth/accessories/${_id}`)
     res = await res.json()
     setData(res)
     
