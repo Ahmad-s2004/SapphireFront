@@ -36,7 +36,7 @@ const Carousel4 = () => {
           500:{
             items:2,
           },
-          370:{
+          200:{
             items:2,  
           }
         }
