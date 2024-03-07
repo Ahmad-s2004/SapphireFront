@@ -10,7 +10,7 @@ const Carousel4 = () => {
     const [data, setData] = useState([])
 
     const userData = async () => {
-        let res = await fetch("http://localhost:4000/api/v3/auth/data/women")
+        let res = await fetch("https://sapphire-back-main.vercel.app/api/v3/auth/data/women")
         res = await res.json()
         setData(res)
         userData()
