@@ -80,7 +80,7 @@ const Cart2 = () => {
                         <div className="row my-2">
                         <div className="col-lg-5">
                             <div className="row" id='CartItems'>
-                                <div className="col-3"><img src={`https://sapphire-back.vercel.app/api/v3/auth/${item.img}`} width={85} alt="" /></div>
+                                <div className="col-3"><img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${item.img}`} width={85} alt="" /></div>
                                 <div className="col-9">
                                     <div className="row pt-3 fw-bold">{item.title}</div>
                                     {/* <div className="row">SIZE</div> */}
