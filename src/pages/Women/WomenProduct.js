@@ -14,7 +14,7 @@ const WomenProduct = () => {
 
 
   const userData = async () => {
-    let res = await fetch(`http://localhost:4000/api/v2/auth/women/${_id}`)
+    let res = await fetch(`https://sapphire-back-main.vercel.app/api/v2/auth/women/${_id}`)
     res = await res.json()
     setData(res)
     
@@ -36,7 +36,7 @@ const WomenProduct = () => {
         <div className="container">
             <div className="row ">
                 <div className="col-lg-6 text-center">
-                    <img src={`http://localhost:4000/api/v3/auth/${data.img}`} alt="" />
+                    <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${data.img}`} alt="" />
                 </div>
                 <div className="col-lg-6">
                     <div className="fnt-mont h5 fw-bold">{data.title}</div>
