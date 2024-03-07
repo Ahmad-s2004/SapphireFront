@@ -6,7 +6,7 @@ const Women = () => {
   const [data, setData] = useState([])
 
   const userData = async () => {
-    let res = await fetch("http://localhost:4000/api/v3/auth/data/women")
+    let res = await fetch("https://sapphire-back-main.vercel.app/api/v3/auth/data/women")
     res = await res.json()
     setData(res)
     userData()
@@ -18,7 +18,7 @@ const Women = () => {
 
 
   const deleteone = async(id) =>{
-    let result = await fetch(`http://localhost:4000/api/v2/auth/user/${id}`,{
+    let result = await fetch(`https://sapphire-back-main.vercel.app/api/v2/auth/user/${id}`,{
       method: "delete"
     })
     result = await result.json()
@@ -38,7 +38,7 @@ const Women = () => {
               return (
                 <div className="col-lg-3 col-md-4 col-sm-6 my-2" key={ind}>
                   <div className="card">
-                    <img src={`http://localhost:4000/api/v3/auth/${x.img}`} className="card-img-top" alt="sas" />
+                    <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${x.img}`} className="card-img-top" alt="sas" />
                     <div className="card-body">
                       <h5 className="card-title fnt-mont fnt-title">{x.title}</h5>
                       <div className="d-flex">
