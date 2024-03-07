@@ -52,7 +52,7 @@ const Carousel4 = () => {
                         return (
                             <>
                                 <div class='item'>
-                                    <h4> <img src={`http://localhost:4000/api/v3/auth/${x.img}`} className="card-img-tops" alt="sas" /></h4>
+                                    <h4> <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${x.img}`} className="card-img-tops" alt="sas" /></h4>
                                     <h6 className='fnt-mont fw-6'>{x.title}</h6>
                                     <div className="fw-6 fnt-mont">Rs.{x.price}</div>
                                 </div>
