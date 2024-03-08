@@ -31,10 +31,12 @@ import SafePay from './pages/SafePay';
 import Blogs from './pages/Blogs';
 import PinkEdit from './pages/PinkEdit.js';
 import SapphireX from './pages/SapphireX';
+import ScrollToTop from './pages/ScrollToTop.js';
 
 function App() {
   return (
     <>
+    <ScrollToTop/>
         <Navbar />
        
         <Routes>
