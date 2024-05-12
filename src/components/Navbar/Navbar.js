@@ -11,14 +11,11 @@ import { FaUser } from 'react-icons/fa';
 
 function Navbar() {
 
-
     const {carts} = useSelector(state => state.allDetail)
 
     const [sidebar, setSidebar] = useState(false);
-    const [isOpen, setIsOpen] = useState(true);
-    const showSidebar = () => {
-        setSidebar(!sidebar)
-    };
+    const [isOpen, setIsOpen] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
     return (
         <div>
             <div className="container-fluid">
