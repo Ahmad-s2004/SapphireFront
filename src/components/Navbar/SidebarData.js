@@ -41,12 +41,6 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'SAPPHIRE X NAIMAL KHAWAR',
-    path: '/sapphire-x-naimal',
-    // icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text'
-  },
-  {
     title: 'PINK EDIT',
     path: '/pink-edit',
     // icon: <FaIcons.FaEnvelopeOpenText />,
