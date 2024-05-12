@@ -34,10 +34,17 @@ import SapphireX from './pages/SapphireX';
 import ScrollToTop from './pages/ScrollToTop.js';
 
 function App() {
+var dat
+  let parent = (data) =>{
+     dat = data
+
+  } 
+  
   return (
     <>
+    <div className={dat? "dim":""}>
     <ScrollToTop/>
-        <Navbar />
+        <Navbar child={parent}/>
        
         <Routes>
           <Route path='/' element={<MainHome/>} />
@@ -71,6 +78,7 @@ function App() {
           
         </Routes>
         <Footer/>
+        </div>
         </>
   );
 }

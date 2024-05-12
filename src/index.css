@@ -22,6 +22,10 @@ body {
 .btn-margin{
   margin-right: 0px;
 }
+.cart-btn{
+  position: absolute;
+  bottom: 0;
+}
 .fnt-title{
   font-size: 13px;
   font-weight: 600;
@@ -31,12 +35,22 @@ body {
   border: none!important;
   overflow: hidden;
 }
+.dim{
+  background: #3838383d;
+}
 .hover{
   overflow: hidden;
 }
+.card-img-top{
+  transition: 0.6s ease;
+}
 .card-img-top:hover{
 transform: scale(1.03);
-transition: 0.6s ease;
+transition: 0.6s;
+overflow: hidden;
+}
+.card-body{
+  overflow: hidden;
 }
 .padding-top-bottom{
   padding: 50px 0px;

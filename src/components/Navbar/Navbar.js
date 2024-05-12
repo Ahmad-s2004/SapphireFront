@@ -9,14 +9,18 @@ import { IconContext } from 'react-icons';
 import { useSelector } from 'react-redux';
 import { FaUser } from 'react-icons/fa';
 
-function Navbar() {
+function Navbar(props) {
+
 
     const {carts} = useSelector(state => state.allDetail)
 
     const [sidebar, setSidebar] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const showSidebar = () => setSidebar(!sidebar);
-
+    const [isOpen, setIsOpen] = useState(true);
+    const showSidebar = () => {
+        setSidebar(!sidebar)
+        props.child(data)
+    };
+    var data = setIsOpen(!isOpen)
     return (
         <div>
             <div className="container-fluid">
@@ -31,12 +35,12 @@ function Navbar() {
                             <IconContext.Provider className="icon-provider navbar-side" value={{ color: 'black' }}>
                                 <div className='navbar'>
                                     <Link to='#' className='menu-bars pb-3'>
-                                        <FaIcons.FaBars onClick={showSidebar} />
+                                        <FaIcons.FaBars onClick={()=>showSidebar} />
                                     </Link>
 
                                 </div>
                                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                                    <ul className='nav-menu-items icon-provider' onClick={showSidebar}>
+                                    <ul className='nav-menu-items icon-provider' onClick={()=>showSidebar}>
                                         <li className='navbar-toggle'>
                                             <Link to='#' className='menu-bars'>
                                                 <AiIcons.AiOutlineClose />
@@ -139,32 +143,3 @@ export default Navbar;
 
 
 
-
-
-{/* <IconContext.Provider value={{ color: 'black' }}> */}
-    <div className='navbar'>
-        <Link to='#' className='menu-bars'>
-            {/* <FaIcons.FaBars onClick={showSidebar} /> */}
-        </Link>
-
-    </div>
-    {/* <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}> */}
-    {/* <ul className='nav-menu-items' onClick={showSidebar}> */}
-    <li className='navbar-toggle'>
-        <Link to='#' className='menu-bars'>
-            <AiIcons.AiOutlineClose />
-        </Link>
-    </li>
-    {/* {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })} */}
-    {/* </ul> */}
-    {/* </nav> */}
-{/* </IconContext.Provider> */}

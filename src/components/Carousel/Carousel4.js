@@ -46,15 +46,15 @@ const Carousel4 = () => {
                 <div className="text-center fs-4 fw-600 heading mt-4 mb-3">TRENDING</div>
         {/* <div className='underline mb-4'></div> */}
 
-            <OwlCarousel className='owl-theme' loop margin={10} {...options}>
+            <OwlCarousel className='owl-theme mb-5' loop margin={10} {...options}>
                 {
                     data.map(x => {
                         return (
                             <>
-                                <div class='item'>
+                                <div class='item '>
                                     <h4> <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${x.img}`} className="card-img-tops" alt="sas" /></h4>
-                                    <h6 className='fnt-mont fw-6'>{x.title}</h6>
-                                    <div className="fw-6 fnt-mont">Rs.{x.price}</div>
+                                    <h6 className='fnt-mont fw-6 ps-2'>{x.title}</h6>
+                                    <div className="fw-6 fnt-mont ps-2">Rs.{x.price}</div>
                                 </div>
                                 
                             </>
@@ -97,7 +97,7 @@ const Carousel4 = () => {
                 <div class='item'>
                     <h4><img src="./pictures/carousel3/men.png" alt="" /></h4>
                 </div> */}
-            </OwlCarousel>;
+            </OwlCarousel>
         </div>
     )
 }

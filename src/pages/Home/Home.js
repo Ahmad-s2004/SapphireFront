@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Loading from '../../components/Loading';
+import ShowCards from '../../components/Details/ShowCards';
 
 
 const Home = () => {
 
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const userData = async () => {
-    let res = await fetch("https://sapphire-back-main.vercel.app/api/v3/auth/data/home")
-    res = await res.json()
-    setData(res)
-    userData()
+  try {
+    var userData = async () => {
+      let res = await fetch("https://sapphire-back-main.vercel.app/api/v3/auth/data/home")
+      res = await res.json()
+      setData(res)
+      userData()
+      setLoading(false)
+    }
+  
+    useEffect(() => {
+      userData()
+    }, [])
+  } catch (error) {
+  console.log(error)  
   }
-
-  useEffect(() => {
-    userData()
-  }, [])
 
 
   const deleteone = async(id) =>{
@@ -30,31 +38,10 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row">
-          {
-            data.map((x, ind) => {
-              return (
-                <div className="col-lg-3 col-md-4 col-sm-6 my-2" key={ind}>
-                  <div className="card">
-                    <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${x.img}`} className="card-img-top" alt="sas" />
-                    <div className="card-body">
-                    <h5 className="card-title fnt-mont fnt-title">{x.title}</h5>
-                      <div className="d-flex">
-                      <p className="card-text h6 col-6">Rs.{x.price}</p>
-                      <Link to={`/home/${x._id}`} className="btn btn-dark btn-margin col-6">View Item</Link>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              )
-            })
-          }
-        </div>
-      </div>
-    </div>
+    
+<div>
+    {loading? <Loading/>:<ShowCards data={data}/>}
+  </div>
   )
 }
 

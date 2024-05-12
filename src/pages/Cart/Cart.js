@@ -1,121 +1,17 @@
-import React, {useEffect, useState} from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { FaTrash } from 'react-icons/fa';
-import { addToCart, removeSingleItem, removeToCart } from '../../redux/reduxSlice';
-import { Link, Outlet } from 'react-router-dom'
-import CheckoutPage from './CheckoutPage';
+import React, { createContext, useState } from 'react';
 
+// Create a context object
+const Cart  = createContext();
 
-const Cart = () => {
-
-  const[totalBill, setTotalBill] = useState()
-  const[totalamountse, setTotalamountse] = useState()
-
-  const {carts} = useSelector(state=>state.allDetail)
-  console.log("cart page _____ ", carts)
-  
-  const dispatch = useDispatch()
-
-// increasing quantity one by one 
-  const incrementHanlder = (ele) =>{
-    dispatch(addToCart(ele))
-  }
-
-  // decreasing quantity one by one 
-  const decrease = (ele) =>{
-    dispatch(removeSingleItem(ele))
-  }
-
-// deleting item from cart 
-const deleteItem = (item) =>{
-  dispatch(removeToCart(item))
-}
-
-
-  const grandTotal = () =>{
-    let total = 0;
-    carts.map(ele =>{
-      total = ele.price * ele.__v + total; 
-    })
-    setTotalBill(total)
-  }
-
-  useEffect(()=>{
-    grandTotal()
-},[grandTotal])
-
+// Create a provider component
+export const AppProvider = ({ children }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div>
-        <h1 className='text-primary text-center fw-bold fs-3 my-3'>Shopping Cart Detail Page</h1>
+    <Cart.Provider value={{ open, setOpen }}>
+      {children}
+    </Cart.Provider>
+  );
+};
 
-        <div className='container-fluid my-4'>
-          <div className="row">
-              <div className='col-md-7'>
-                
-              <table class="table table-striped table-hover">
-                  <thead>
-                    <tr>
-                      
-                      <th scope="col">Operation</th>
-                      <th scope="col">Photo</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Quantity</th>
-                      <th scope="col">Sub Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                        {
-                            carts.map((item, index)=>{
-                              return(
-                                <tr key={index}>
-                                      <td>
-                                        <button onClick={()=>deleteItem(item._id)} className='text-danger fs-5'><FaTrash /></button>
-                                      </td>
-                                      <td>
-                                        <img src={`http://localhost:4000/api/v3/auth/${item.img}`} height={60} width={50} />
-                                      </td>
-                                      <td>{item.title}</td>
-                                      <td>{item.price}</td>
-                                      <td>
-                                        <button onClick={()=>incrementHanlder(item)} className='btn btn-warning btn-sm me-2'>+</button>
-                                        {item.__v}                                          
-                                        {/* <button onClick={()=>decrease(item)} className='btn btn-warning btn-sm ms-2'>-</button> */}
-                                        <button onClick={item.__v>1 ? ()=>decrease(item) : ()=>deleteItem(item._id)} className='btn btn-warning btn-sm ms-2'>-</button>                                        
-                                      </td>
-                                      <td>Rs. {item.price * item.__v}.00 /-</td>
-                                </tr>
-                                  
-                                  
-                                  )
-                                })
-                              }                   
-                  </tbody>
-              </table>
-                              <h4 className="text-success text-center fw-bold">Grand Total Amount: {totalBill} / - PKR</h4>
-                
-              </div>
-              <div className='col-md-4 ms-1'>
-
-              <ul class="list-group">
-                  <li class="list-group-item">Summary</li>
-                  <li class="list-group-item">Estimate Shipping and Tax</li>
-                  <li class="list-group-item">Sub Total: 0</li>
-                  <li class="list-group-item">Shipping: 0</li>
-                  <li class="list-group-item">Total: {totalBill}</li>
-                  <Link to="/checkout" className='btn btn-dark'>GO TO CHECKOUT</Link>
-              </ul>
-
-              </div>
-          </div>
-        </div>
-
-          <div style={{display:"none"}}>
-        <CheckoutPage totalBill={totalBill} />
-        </div>
-    </div>
-  )
-}
-
-export default Cart
+export default Cart;
