@@ -9,7 +9,7 @@ import { IconContext } from 'react-icons';
 import { useSelector } from 'react-redux';
 import { FaUser } from 'react-icons/fa';
 
-function Navbar(props) {
+function Navbar() {
 
 
     const {carts} = useSelector(state => state.allDetail)
@@ -18,9 +18,7 @@ function Navbar(props) {
     const [isOpen, setIsOpen] = useState(true);
     const showSidebar = () => {
         setSidebar(!sidebar)
-        props.child(data)
     };
-    var data = setIsOpen(!isOpen)
     return (
         <div>
             <div className="container-fluid">
