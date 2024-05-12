@@ -16,6 +16,7 @@ function Navbar() {
     const [sidebar, setSidebar] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
+
     return (
         <div>
             <div className="container-fluid">
