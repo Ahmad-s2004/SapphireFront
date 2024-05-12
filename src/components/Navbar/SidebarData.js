@@ -5,14 +5,14 @@ import * as IoIcons from 'react-icons/io';
 
 export const SidebarData = [
   {
-    title: 'NEW IN',
-    path: '/newin',
+    title: 'WOMEN',
+    path: '/women',
     // icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
-    title: 'WOMEN',
-    path: '/women',
+    title: 'NEW IN',
+    path: '/newin',
     // icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
@@ -29,20 +29,26 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'BEAUTY',
-    path: '/beauty',
-    // icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text'
-  },
-  {
     title: 'ACCESSORIES',
     path: '/accessories',
     // icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },
   {
-    title: 'ADMIN PANEL',
-    path: '/admin',
+    title: 'HOME',
+    path: '/home',
+    // icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'SAPPHIRE X NAIMAL KHAWAR',
+    path: '/sapphire-x-naimal',
+    // icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'PINK EDIT',
+    path: '/pink-edit',
     // icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
   },
