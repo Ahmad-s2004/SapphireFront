@@ -6,16 +6,24 @@ import Badge from '@mui/material/Badge';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaUser } from 'react-icons/fa';
+import { toggle } from '../../redux/reduxSlice';
+
+
 
 function Navbar() {
+
+    const dispatch = useDispatch()
 
     const {carts} = useSelector(state => state.allDetail)
 
     const [sidebar, setSidebar] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const showSidebar = () => setSidebar(!sidebar);
+    const showSidebar = () => {
+        setSidebar(!sidebar);
+        dispatch(toggle())
+    }
 
     return (
         <div>
@@ -35,7 +43,7 @@ function Navbar() {
                                     </Link>
 
                                 </div>
-                                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} >
                                     <ul className='nav-menu-items icon-provider' onClick={showSidebar}>
                                         <li className='navbar-toggle'>
                                             <Link to='#' className='menu-bars'>
@@ -62,7 +70,7 @@ function Navbar() {
                     <div className="col-6 border-none text-center search-bx">
                         <div className="row text-center w-100 search-navbar p-2 align-items-center">
                             <div className="col">
-                                <input className="form-control " type="search" placeholder="FIND YOUR FAVOURITES" />
+                                <input className="form-control" style={{outline:"none"}} type="search" placeholder="FIND YOUR FAVOURITES" />
                             </div>
                             <div className="col-auto pt-2">
                                 <i className="fas fa-search h5 text-body" />

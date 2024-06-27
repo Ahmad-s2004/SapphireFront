@@ -32,11 +32,15 @@ import Blogs from './pages/Blogs';
 import PinkEdit from './pages/PinkEdit.js';
 import SapphireX from './pages/SapphireX';
 import ScrollToTop from './pages/ScrollToTop.js';
+import { useSelector } from 'react-redux';
 
 function App() {
 
+  const toggleValue = useSelector(state => state.allDetail.value);
+
   return (
-    <>
+    <div className={toggleValue ? 'bgDark' : 'bgNone'}>
+      <div className='innerBody'>
     <ScrollToTop/>
         <Navbar/>
        
@@ -72,7 +76,8 @@ function App() {
           
         </Routes>
         <Footer/>
-        </>
+        </div>
+        </div>
   );
 }
 

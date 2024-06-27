@@ -6,20 +6,20 @@ import Loading from '../../components/Loading';
 
 const WomenProduct = () => {
 
-    const {_id} = useParams();
+  const { _id } = useParams();
 
-    const [amount, setAmount] = useState(0)
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-    
-    const dispatch = useDispatch()
+  const [amount, setAmount] = useState(0)
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const dispatch = useDispatch()
 
 
   const userData = async () => {
     let res = await fetch(`https://sapphire-back-main.vercel.app/api/v2/auth/women/${_id}`)
     res = await res.json()
     setData(res)
-    
+
     userData()
     setLoading(false)
   }
@@ -27,44 +27,43 @@ const WomenProduct = () => {
   useEffect(() => {
     userData()
   }, [])
-  
-  const sendData = (ele) =>{
+
+  const sendData = (ele) => {
     dispatch(addToCart(ele))
   }
 
-  const formatePrice = (price) =>{
+  const formatePrice = (price) => {
     return `${price.toLocaleString()}`;
   }
-  
-  const ShowProduct = () =>{
-    return(
+
+  const ShowProduct = () => {
+    return (
       <div className='lightgrey-color padding-top-bottom'>
-      <div className="container">
+        <div className="container">
           <div className="row ">
-              <div className="col-lg-6 text-center">
-                  <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${data.img}`} alt="" />
-              </div>
-              <div className="col-lg-6">
-                  <div className="fnt-mont h5 fw-bold">{data.title}</div>
-                  <div className="fnt-mont h6">Rs.{formatePrice(data.price*1)}</div>
-                  <div className="fnt-mont fw-bold">Size: {data.size}</div>
-                  <div className="fnt-mont mt-2">{data.description}</div>
-                  <div className="fnt-mont fw-1 fnt-color">Details:</div>
-                  <span className="fnt-mont fnt-color fw-2 ">{data.detail}</span>
-                  <div className="fnt-mont fw-1 fnt-color">Color: <span className='fw-2'>{data.color}</span></div>
-                  <div className="fnt-mont fw-1 fnt-color">Fabric: <span  className='fw-2'>{data.fabric}</span></div>
-                  
-                  <a onClick={() => sendData(data)} className="btn btn-dark cart-btn fnt-mont cart-btn py-3 px-4"  style={{height:"60px"}}>ADD TO CART</a>
-              </div>
+            <div className="col-lg-6 text-center">
+              <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${data.img}`} alt="" />
+            </div>
+            <div className="col-lg-6 mt-5 ps-3">
+              <div className="fnt-mont h5 fw-bold">{data.title}</div>
+              <div className="fnt-mont h6">Rs.{formatePrice(data.price * 1)}</div>
+              <div className="fnt-mont fw-bold">Size: {data.size}</div>
+              <div className="fnt-mont mt-2">{data.description}</div>
+              <div className="fnt-mont fw-1 fnt-color">Details:
+              <span className="fnt-mont fnt-color fw-2 ">{data.detail}</span></div>
+              <div className="fnt-mont fw-1 fnt-color">Color: <span className='fw-2'>{data.color}</span></div>
+              <div className="fnt-mont fw-1 fnt-color">Fabric: <span className='fw-2'>{data.fabric}</span></div>
+              <button onClick={() => sendData(data)} className="btn btn-dark fnt-mont fw-1 mt-4 px-3 py-2">ADD TO CART</button>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
     )
   }
- 
+
 
   return (
-   <>{loading?<Loading/> : <ShowProduct/>}</>
+    <>{loading ? <Loading /> : <ShowProduct />}</>
   )
 }
 

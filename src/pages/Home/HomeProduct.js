@@ -45,7 +45,7 @@ const HomeProduct = () => {
               <div className="col-lg-6 text-center">
                   <img src={`https://sapphire-back-main.vercel.app/api/v3/auth/${data.img}`} alt="" />
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-6 mt-5 ps-3">
                   <div className="fnt-mont h5 fw-bold">{data.title}</div>
                   <div className="fnt-mont h6">Rs.{formatePrice(data.price*1)}</div>
                   <div className="fnt-mont fw-bold">Size: {data.size}</div>
@@ -55,7 +55,7 @@ const HomeProduct = () => {
                   <div className="fnt-mont fw-1 fnt-color">Color: <span className='fw-2'>{data.color}</span></div>
                   <div className="fnt-mont fw-1 fnt-color">Fabric: <span  className='fw-2'>{data.fabric}</span></div>
                   
-                  <a onClick={() => sendData(data)} className="btn btn-dark cart-btn fnt-mont py-3 px-4"  style={{height:"60px"}}>ADD TO CART</a>
+                  <button onClick={() => sendData(data)} className="btn btn-dark fnt-mont fw-1 mt-4 px-3 py-2">ADD TO CART</button>
               </div>
           </div>
       </div>
