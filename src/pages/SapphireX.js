@@ -1,65 +1,44 @@
-import React from 'react'
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 
 const SapphireX = () => {
-    const options = {
-        items:4,
-          loop: true,
-          dots: true,
-          loop: true,
-          slidePerView:4,
-          responsive: {
-              1100:{
-                items:2,
-              },
-              724:{
-                items:2,  
-              },
-              500:{
-                items:2,
-              },
-              370:{
-                items:1,  
-              }
-            }
-      }
-    return (
-      <div>
-           <div className="container-fluid">
-        <div className="text-center font-mont h5 bg-lightgrey fw-bold my-3 py-3">THE EDIT</div>
-      </div>
-          <OwlCarousel className='owl-theme' loop margin={10} {...options}>
-      <div class='item'>
-          <h4><img src="./images/img1.png"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img2.GIF"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img3.GIF"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img4.GIF"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img5.png"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img6.png"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img7.png"className='cat-img' alt="" /></h4>
-      </div>
-      <div class='item'>
-          <h4><img src="./images/img8.png"className='cat-img' alt="" /></h4>
-      </div>
-    
-  </OwlCarousel>;
-      </div>
-    )
-}
+    const slides = [
+        { src: "./images/img1.png" },
+        { src: "./images/img2.GIF" },
+        { src: "./images/img3.GIF" },
+        { src: "./images/img4.GIF" },
+        { src: "./images/img5.png" },
+        { src: "./images/img6.png" },
+        { src: "./images/img7.png" },
+        { src: "./images/img8.png" },
+    ];
 
-export default SapphireX
+    return (
+        <div>
+            <div className="container-fluid">
+                <div className="text-center font-mont h5 bg-lightgrey fw-bold my-3 py-3">THE EDIT</div>
+            </div>
+            <Swiper
+                spaceBetween={10}
+                slidesPerView={4}
+                loop={true}
+                pagination={{ clickable: true }}
+                breakpoints={{
+                    1100: { slidesPerView: 2 },
+                    724: { slidesPerView: 2 },
+                    500: { slidesPerView: 2 },
+                    370: { slidesPerView: 1 },
+                }}
+            >
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                        <img src={slide.src} className='cat-img' alt={`Slide ${index + 1}`} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
+    );
+};
+
+export default SapphireX;

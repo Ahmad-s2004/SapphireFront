@@ -1,102 +1,86 @@
-import React from 'react'
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-import "./Carousel6.css"
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './Carousel6.css';
+import { Pagination } from 'swiper/modules';
 
 const Carousel6 = () => {
-    const options = {
-        items:4,
-        loop: true,
-        dots: false,
-        loop: true,
-        slidePerView:4,
-        responsive: {
-          1100:{
-            items:4,
-          },
-          724:{
-            items:3,  
-          },
-          500:{
-            items:2,
-          },
-          200:{
-            items:2,  
-          }
-        }
+  const slides = [
+    {
+      img: './pictures/carousel6/Durefishan.png',
+      name: 'Durefishan',
+      desc: 'Embroidered Chiffon Suit'
+    },
+    {
+      img: './pictures/carousel6/hania.png',
+      name: 'Hania Amir',
+      desc: 'Embroidered Raw Silk Suit'
+    },
+    {
+      img: './pictures/carousel6/jiya.png',
+      name: 'Jiya Khurram',
+      desc: 'Embroidered Khaddi Net Suit'
+    },
+    {
+      img: './pictures/carousel6/kanza.png',
+      name: 'Kanza Babar',
+      desc: 'Embroidered Dobby Suit'
+    },
+    {
+      img: './pictures/carousel6/mehvish.png',
+      name: 'Mehvish Ahmad',
+      desc: 'Solid Jacquard Shirt'
+    },
+    {
+      img: './pictures/carousel6/kinza.png',
+      name: 'Kinza Hashmi',
+      desc: 'Embroidered Organza Suit'
+    },
+    {
+      img: './pictures/carousel6/rija.png',
+      name: 'Rija Mujahid',
+      desc: 'Embroidered Karandi Suit'
     }
+  ];
+
+  const renderSlides = () => {
+    return slides.map((slide, index) => (
+      <SwiperSlide key={index}>
+        <div className='item'>
+          <h4><img src={slide.img} alt={slide.name} /></h4>
+          <div className="text-center font-mont h6 fnt-bold">{slide.name}</div>
+          <div className="text-center font-mont h10">wearing our</div>
+          <div className="text-center font-mont h9">{slide.desc}</div>
+        </div>
+      </SwiperSlide>
+    ));
+  };
+
   return (
-      <div className='container-fluid py-3 color'>
-        <div className="text-center h4 font-mont fnt-bold">STYLED BY YOU</div>
-        <div className="text-center h8 font-mont">#SAPPHIREXME</div>
-    <div className='container mt-5'>
-    {/* <div className='color'> */}
-        <OwlCarousel className='owl-theme' loop margin={10} {...options}>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/Durefishan.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Durefishan</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Embroidered Chiffon Suit</div>
+    <div className='container-fluid py-3 color'>
+      <div className="text-center h4 font-mont fnt-bold">STYLED BY YOU</div>
+      <div className="text-center h8 font-mont">#SAPPHIREXME</div>
+      <div className='container mt-5'>
+        <Swiper
+          loop={true}
+          slidesPerView={4}
+          spaceBetween={10}
+          breakpoints={{
+            1100: { slidesPerView: 4 },
+            724: { slidesPerView: 3 },
+            500: { slidesPerView: 2 },
+            200: { slidesPerView: 2 }
+          }}
+          pagination={{ clickable: true }}
+          modules={[Pagination]}
+          className='swiper-container'
+        >
+          {renderSlides()}
+        </Swiper>
+      </div>
     </div>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/hania.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Hania Amir</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Embroidered Raw Silk Suit</div>
-    </div>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/jiya.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Jiya Khurram</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Embroidered Khaddi Net Suit</div>
-    </div>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/kanza.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Kanza Babar</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Embroidered Dobby Suit</div>
-    </div>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/mehvish.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Mehvish Ahmad</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Solid Jacquard Shirt</div>
-    </div>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/kinza.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Kinza Hashmi</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Embroidered Organza Suit</div>
-    </div>
-    <div class='item'>
-        <h4><img src="./pictures/carousel6/rija.png" alt="" /></h4>
-        <div className="text-center font-mont h6 fnt-bold ">Rija Mujahid</div>
-        <div className="text-center font-mont h10">wearing our</div>
-        <div className="text-center font-mont h9">Embroidered Karandi Suit</div>
-    </div>
-</OwlCarousel>
-    {/* </div> */}
-    </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Carousel6
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Carousel6;
