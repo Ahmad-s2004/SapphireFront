@@ -26,7 +26,7 @@ function Navbar() {
     }
 
     return (
-        <div>
+        <div style={{position:"fixed"}}>
             <div className="container-fluid">
                 <div className="row py-3 align-items-center">
                     <div className="col-3 before">
